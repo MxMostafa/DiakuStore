@@ -1,5 +1,7 @@
 ﻿
 
+
+
 namespace DiakuSoft.Server.API.Applications.Validators.Auth;
 public class LoginReqDtoValidator : AbstractValidator<LoginReqDto>
 {

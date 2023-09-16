@@ -13,6 +13,7 @@ public class ErrorController : ControllerBase
     }
 
     [Route("/error")]
+    [HttpGet]
     public IActionResult Error()
     {
         var exceprion = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;

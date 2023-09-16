@@ -1,8 +1,8 @@
 ﻿namespace DiakuSoft.Server.API.Applications.Validators.Auth;
 
-public class RegistrationWithEmailValidator:AbstractValidator<RegisterationByEmailReqDto>
+public class RegistrationWithByValidator:AbstractValidator<RegisterationByEmailReqDto>
 {
-    public RegistrationWithEmailValidator()
+    public RegistrationWithByValidator()
     {
         RuleFor(x => x.Email)
             .Matches(RegexPattern.EmailPattern)
