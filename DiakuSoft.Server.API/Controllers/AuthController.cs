@@ -12,6 +12,7 @@ public class AuthController : ControllerBase
     public AuthController(IAuthService authService)
     {
         _authService = authService;
+
     }
 
     [Route("login")]

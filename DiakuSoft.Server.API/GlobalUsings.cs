@@ -4,3 +4,7 @@ global using DiakuSoft.Server.Infrastructure.DbContexts;
 global using Microsoft.EntityFrameworkCore;
 global using DiakuSoft.Server.API.Extensions;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using DiakuSoft.Server.Domain.Dtos.Request.Auth;
+global using DiakuSoft.Server.Domain.Constants;
+global using FluentValidation;
+global using DiakuSoft.Server.API.Resources;

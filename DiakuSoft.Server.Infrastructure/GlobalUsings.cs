@@ -13,3 +13,4 @@ global using DiakuSoft.Server.Domain.Interfaces.Service;
 global using DiakuSoft.Server.Domain.Services;
 global using Microsoft.Extensions.DependencyInjection;
 global using DiakuSoft.Server.Infrastructure.Repositories;
+global using DiakuSoft.Server.Domain.Resources;
