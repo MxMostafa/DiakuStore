@@ -14,4 +14,11 @@ public class UserProfileRepository : IUserProfileRepository
     {
         return await _context.UserProfiles.SingleOrDefaultAsync(p => p.UserId == userId);
     }
+
+    public async Task<UserProfile?> UpdateAsync(UserProfile userProfile)
+    {
+        _context.Entry(userProfile).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return userProfile;
+    }
 }

@@ -13,3 +13,4 @@ global using DiakuSoft.Server.Domain.Resources;
 global using System.Security.Claims;
 global using DiakuSoft.Server.Domain.Services;
 global using Microsoft.Extensions.DependencyInjection;
+

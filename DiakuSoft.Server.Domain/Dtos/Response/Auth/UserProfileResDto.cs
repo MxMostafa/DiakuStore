@@ -2,7 +2,7 @@
 
 namespace DiakuSoft.Server.Domain.Dtos.Response.Auth;
 
-public class ProfileResDto
+public class UserProfileResDto
 {
     public string? FirstName { get; set; }
     public string? LastName { get; set; }

@@ -88,7 +88,7 @@ public class AuthService : IAuthService
             var result = new LoginResDto()
             {
                 AccessToken = token,
-                Profile = new ProfileResDto()
+                Profile = new UserProfileResDto()
                 {
                     FirstName = userProfile?.FirstName,
                     LastName = userProfile?.LastName,

@@ -34,4 +34,9 @@ public static class HostingExtension
 
         return services;
     }
+
+    public static string GetUserId(this HttpContext httpContext)
+    {
+        return httpContext.User.Identity?.Name ?? string.Empty;
+    }
 }

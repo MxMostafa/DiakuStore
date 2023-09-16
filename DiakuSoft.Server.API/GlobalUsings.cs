@@ -15,3 +15,5 @@ global using DiakuSoft.Server.Infrastructure.Extensions;
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
+global using Microsoft.AspNetCore.Authorization;
+global using DiakuSoft.Server.Domain.Interfaces.Service;
