@@ -1,0 +1,15 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using DiakuSoft.Server.Domain.Entities.Auth;
+global using Microsoft.EntityFrameworkCore;
+global using System.Reflection;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using DiakuSoft.Server.Domain.Interfaces.Repository;
+global using DiakuSoft.Server.Domain.Interfaces.Service;
+global using DiakuSoft.Server.Domain.Services;
+global using Microsoft.Extensions.DependencyInjection;
+global using DiakuSoft.Server.Infrastructure.Repositories;
