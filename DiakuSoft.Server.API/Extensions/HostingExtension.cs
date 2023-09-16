@@ -75,8 +75,18 @@ public static class HostingExtension
         return services;
     }
 
-    public static string GetUserId(this HttpContext httpContext)
+    public static string GetUserId(this HttpContext context)
     {
-        return httpContext.User.Identity?.Name ?? string.Empty;
+        var userId = "";
+
+        if (context.User.Identities.Count() > 0)
+        {
+            var identity = context.User.Identities.First();
+            var claims = identity.Claims.Where(x => x.Type.Contains("nameidentifier"));
+            if (claims.Count() > 0)
+                userId = claims.First().Value.ToString();
+        }
+
+        return userId;
     }
 }
