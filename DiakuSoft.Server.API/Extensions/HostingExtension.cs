@@ -1,11 +1,4 @@
-﻿using DiakuSoft.Server.Domain.Entities.Auth;
-using DiakuSoft.Server.Domain.Extensions;
-using DiakuSoft.Server.Domain.Models;
-using DiakuSoft.Server.Infrastructure.DbContexts;
-using DiakuSoft.Server.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Identity;
-
-namespace DiakuSoft.Server.API.Extensions;
+﻿namespace DiakuSoft.Server.API.Extensions;
 public static class HostingExtension
 {
     public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfiguration configuration)
@@ -16,7 +9,18 @@ public static class HostingExtension
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
-
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = configuration["JWTKeySetting:ValidAudience"],
+                    ValidIssuer = configuration["JWTKeySetting:ValidIssuer"],
+                    ClockSkew = TimeSpan.Zero,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWTKeySetting:Secret"]!))
+                };
             });
 
         services.AddIdentity<ApplicationUser, IdentityRole>()

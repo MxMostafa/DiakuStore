@@ -70,6 +70,24 @@ namespace DiakuSoft.Server.API.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نام الزامی و باید حداقل 3 کاراکتر باشد.
+        /// </summary>
+        internal static string FirstNameValidationError {
+            get {
+                return ResourceManager.GetString("FirstNameValidationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام خانوادگی الزامی و باید حداقل 3 کاراکتر باشد.
+        /// </summary>
+        internal static string LastNameValidationError {
+            get {
+                return ResourceManager.GetString("LastNameValidationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to رمز عبور وارد شده معتبر نمی باشد.
         /// </summary>
         internal static string PasswordPatternError {

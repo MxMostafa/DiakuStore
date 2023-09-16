@@ -120,6 +120,12 @@
   <data name="EmailPatternError" xml:space="preserve">
     <value>ایمیل وارد شده معتبر نمی باشد</value>
   </data>
+  <data name="FirstNameValidationError" xml:space="preserve">
+    <value>نام الزامی و باید حداقل 3 کاراکتر باشد</value>
+  </data>
+  <data name="LastNameValidationError" xml:space="preserve">
+    <value>نام خانوادگی الزامی و باید حداقل 3 کاراکتر باشد</value>
+  </data>
   <data name="PasswordPatternError" xml:space="preserve">
     <value>رمز عبور وارد شده معتبر نمی باشد</value>
   </data>

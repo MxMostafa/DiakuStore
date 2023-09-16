@@ -8,7 +8,7 @@ namespace DiakuSoft.Server.Domain.Constants
 {
     public static class RegexPattern
     {
-        public static string EmailPattern => "^[a-zA-Z-']*$";
+        public static string EmailPattern => "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
         public static string PasswordPattern => "^[a-zA-Z-']*$";
     }
 }
