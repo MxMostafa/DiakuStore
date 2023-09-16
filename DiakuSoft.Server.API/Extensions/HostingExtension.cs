@@ -1,4 +1,6 @@
-﻿namespace DiakuSoft.Server.API.Extensions;
+﻿using Microsoft.Extensions.Options;
+
+namespace DiakuSoft.Server.API.Extensions;
 public static class HostingExtension
 {
     public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfiguration configuration)
@@ -38,22 +40,7 @@ public static class HostingExtension
         services.AddDbContext<DiakuSoftDbContext>(
          option => option.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = configuration["JWTKeySetting:ValidAudience"],
-                    ValidIssuer = configuration["JWTKeySetting:ValidIssuer"],
-                    ClockSkew = TimeSpan.Zero,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWTKeySetting:Secret"]!))
-                };
-            });
+
 
         services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<DiakuSoftDbContext>().AddDefaultTokenProviders();
@@ -63,6 +50,27 @@ public static class HostingExtension
 
         services.ConfigureDomain();
         services.ConfigureInfrastructure();
+
+        var secret = configuration["JWTKeySetting:Secret"]!;
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(options =>
+        {
+            options.SaveToken = true;
+            options.RequireHttpsMetadata = false;
+            options.TokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ClockSkew = TimeSpan.FromHours(1),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret))
+            };
+        });
 
         return services;
     }

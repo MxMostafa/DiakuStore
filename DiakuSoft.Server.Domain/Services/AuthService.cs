@@ -111,8 +111,8 @@ public class AuthService : IAuthService
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Issuer = _jWTKeySetting.ValidIssuer,
-                Audience = _jWTKeySetting.ValidAudience,
+                //Issuer = _jWTKeySetting.ValidIssuer,
+                //Audience = _jWTKeySetting.ValidAudience,
                 Expires = DateTime.UtcNow.AddHours(tokenExpiryTimeInHour),
                 SigningCredentials = new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256),
                 Subject = new ClaimsIdentity(claims)
