@@ -19,10 +19,12 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
+
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 app.UseCors();
 app.UseAuthentication();
